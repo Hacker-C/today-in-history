@@ -62,7 +62,7 @@ async function handler(req: Request): Promise<Response> {
 		const m = D.getMonth() + 1, d = D.getDate();
 		monthArg = (m < 10 ? '0' + m : m) as string;
 		dayArg = (d < 10 ? '0' + d : d) as string;
-		queryArg = +monthArg + dayArg;
+		queryArg = monthArg + '' + dayArg;
 	} else {
 		monthArg = month!.length < 2 ? '0' + month : month as string;
 		dayArg = day!.length < 2 ? '0' + day : day as string;
