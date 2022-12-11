@@ -1,13 +1,15 @@
 import { serve } from 'https://deno.land/std@0.157.0/http/server.ts';
 
 // 配置文件
-const port = 8080;
-const ALLOW_ORIGIN: 'development' | 'production' = 'development';
+const port = 8081;
+const ENV: 'production' | 'development' = 'production';
+const ALLOW_ORIGIN: Record<string, string> = {
+	production: 'https://60s-view.netlify.app',
+	development: 'http://localhost:3333',
+};
 const headers = {
 	'Content-Type': 'application/json',
-	'Access-Control-Allow-Origin': ALLOW_ORIGIN === 'development'
-		? 'http://localhost:3333'
-		: 'https://60s-view.netlify.app',
+	'Access-Control-Allow-Origin': ALLOW_ORIGIN[ENV],
 	'Access-Control-Allow-Methods': 'GET',
 };
 const api = (month: string) => `https://baike.baidu.com/cms/home/eventsOnHistory/${month}.json`;
