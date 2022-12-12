@@ -35,7 +35,7 @@ serve(handler, {
 const theResponse = (
 	dayData: EventType[] | null,
 	status = 200,
-	message = 'ok',
+	message = 'ok' + Date.now(),
 ) => {
 	return new Response(JSON.stringify({ status, message, data: dayData }), {
 		headers,
