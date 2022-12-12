@@ -35,7 +35,7 @@ serve(handler, {
 const theResponse = (
 	dayData: EventType[] | null,
 	status = 200,
-	message = 'ok' + new Intl.DateTimeFormat('en-US', {timeZone: 'Asia/Shanghai', timeStyle: 'long'}).format(),
+	message = 'OK: ' + new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Shanghai', timeStyle: 'long' }).format(),
 ) => {
 	return new Response(JSON.stringify({ status, message, data: dayData }), {
 		headers,
@@ -60,10 +60,14 @@ async function handler(req: Request): Promise<Response> {
 	let monthArg: string, dayArg: string, queryArg: string;
 	// 都没有传则默认返回当天数据
 	if (month === null && day === null) {
-		const D = new Date(Date.now() + 8 * 60 * 60 * 1000)
-		const m = D.getMonth() + 1, d = D.getDate();
-		monthArg = (m < 10 ? '0' + m : m) as string;
-		dayArg = (d < 10 ? '0' + d : d) as string;
+		// const D = new Date(Date.now() + 8 * 60 * 60 * 1000)
+		// const m = D.getMonth() + 1, d = D.getDate();
+		// 获取东八区时间（GMT+8）
+		const date = new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai' }).format();
+		// date -> mm/dd/yy
+		const [_, m, d] = date.split('/');
+		monthArg = (m.length < 2 ? '0' + m : m) as string;
+		dayArg = (d.length < 2 ? '0' + d : d) as string;
 		queryArg = monthArg + '' + dayArg;
 	} else {
 		monthArg = month!.length < 2 ? '0' + month : month as string;
