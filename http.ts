@@ -35,7 +35,7 @@ serve(handler, {
 const theResponse = (
 	dayData: EventType[] | null,
 	status = 200,
-	message = 'ok' + Date.now(),
+	message = 'ok' + new Date().toLocaleString()
 ) => {
 	return new Response(JSON.stringify({ status, message, data: dayData }), {
 		headers,
