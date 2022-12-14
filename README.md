@@ -4,6 +4,8 @@
 
 ## API
 
+Demo：https://today-in-history.deno.dev
+
 |api|method|params|desc|
 |-|-|-|-|
 |`/`|GET|无参|默认返回当天的数据|
