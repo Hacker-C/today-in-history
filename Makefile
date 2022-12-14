@@ -3,7 +3,7 @@ CONFIG = --config tsconfig.json
 OUT_DIR = build
 
 run:
-	deno run --allow-net --watch --allow-env http.ts $(CONFIG)
+	deno run --allow-net --watch --allow-env main.ts $(CONFIG)
 
 fmt:
 	deno fmt $(IGNORE) --unstable

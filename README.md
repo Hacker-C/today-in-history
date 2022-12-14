@@ -55,7 +55,7 @@ Demo：https://today-in-history.deno.dev
 
 ```bash
 # Start
-deno run --watch --allow-net http.ts
+deno run --watch --allow-net main.ts
 # Lint
 deno lint
 # auto format
