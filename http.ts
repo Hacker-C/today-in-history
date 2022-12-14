@@ -7,6 +7,7 @@ const ALLOW_ORIGIN: Record<string, string> = {
 	production: 'https://60s-view.netlify.app',
 	development: 'http://localhost:3333',
 };
+// Response headers
 const headers = {
 	'Content-Type': 'application/json',
 	'Access-Control-Allow-Origin': ALLOW_ORIGIN[ENV],
