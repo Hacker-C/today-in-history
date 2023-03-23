@@ -4,7 +4,7 @@ import { serve } from 'https://deno.land/std@0.157.0/http/server.ts';
 const port = 8081;
 const ENV: 'production' | 'development' = 'production';
 const ALLOW_ORIGIN: Record<string, string> = {
-	production: 'https://60s-view.netlify.app',
+	production: 'https://60s.mphy.me',
 	development: 'http://localhost:3333',
 };
 // Response headers
