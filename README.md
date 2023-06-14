@@ -4,7 +4,7 @@
 
 ## API
 
-Demo：https://today-in-history.deno.dev
+本接口已经合并到了：https://github.com/Hacker-C/60s
 
 |api|method|params|desc|
 |-|-|-|-|
